@@ -1,0 +1,11 @@
+.user-list {
+  column-count: 5;
+  column-gap: 20px;
+}
+
+.user-item {
+  break-inside: avoid;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 0 0 20px 0;
+}

@@ -1,0 +1,42 @@
+<div>
+  <input type="file" (change)="onFileSelected($event)" #fileInput />
+</div>
+
+<button *ngIf="userList" mat-raised-button color="primary" (click)="saveData()">
+  Save
+</button>
+<div *ngIf="userList">
+  <h1>Rankings:</h1>
+  <div class="user-list">
+    <div *ngFor="let user of userList" class="user-item">
+      <div>
+        {{ user.name }}<br />
+        Amount of Messages: {{ user.messages.length }}<br />
+        Amount of points: {{ user.points }}
+      </div>
+    </div>
+  </div>
+
+  <h3>Uploaded File Content:</h3>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let user of userList">
+      <mat-expansion-panel-header>
+        <mat-panel-title (click)="toggleUserMessages(user)">{{
+          user.name
+        }}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <h3>Stats</h3>
+        Amount of Messages: {{ user.messages.length }}
+        <br />
+      </div>
+      <div *ngFor="let message of user.messages">
+        <p>-----------------------------</p>
+        <div>
+          Message: {{ message.text }}<br />
+          Date: {{ message.date | date : "dd/MM/yyyy - HH:mm" }}
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

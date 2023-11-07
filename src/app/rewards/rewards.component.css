@@ -1,0 +1,23 @@
+.center {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%; /* Adjust the width as needed */
+}
+
+table,
+th,
+td {
+  font-size: 32px;
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 15px;
+  margin: 0 auto; /* Center the table within the container */
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
