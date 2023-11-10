@@ -8,6 +8,8 @@ import { CounterComponent } from './counter/counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RewardsComponent } from './rewards/rewards.component';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { RewardsComponent } from './rewards/rewards.component';
     HomePageComponent,
     CounterComponent,
     RewardsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,12 @@ import { RewardsComponent } from './rewards/rewards.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'home', component: HomePageComponent },
+      { path: 'counter', component: CounterComponent },
+      { path: 'rewards', component: RewardsComponent },
+    ]),
   ],
   providers: [],
   bootstrap: [

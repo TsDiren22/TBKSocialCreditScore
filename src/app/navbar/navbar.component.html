@@ -1,0 +1,31 @@
+<header id="nav-wrapper">
+  <nav id="nav">
+    <div class="nav left">
+      <span class="gradient skew"
+        ><h1 class="logo un-skew">
+          <a routerLink="/home"
+            ><img class="image" src="../assets/images/logo.png" />
+          </a></h1
+      ></span>
+      <button id="menu" class="btn-nav">
+        <span class="fas fa-bars"></span>
+      </button>
+    </div>
+    <div class="nav right">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+        >Home</a
+      >
+
+      <a routerLink="/counter" routerLinkActive="active" class="nav-link"
+        >Counter</a
+      >
+      <a routerLink="/rewards" routerLinkActive="active" class="nav-link"
+        >Rewards</a
+      >
+    </div>
+  </nav>
+</header>
