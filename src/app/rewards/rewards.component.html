@@ -1,19 +1,20 @@
-<div class="center">
-  <h1>Rewards</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let r of rewards">
-        <td>{{ r.name }}</td>
-        <td>{{ r.description }}</td>
-        <td>{{ r.price }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h1>
+  <span class="blue"></span>TBK<span class="blue"></span>
+  <span class="yellow">Rewards</span>
+</h1>
+<table class="container">
+  <thead>
+    <tr>
+      <th><h1>Name</h1></th>
+      <th><h1>Description</h1></th>
+      <th><h1>Price</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of rewards">
+      <td>{{ r.name }}</td>
+      <td>{{ r.description }}</td>
+      <td>{{ r.price }}</td>
+    </tr>
+  </tbody>
+</table>

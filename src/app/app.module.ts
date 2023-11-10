@@ -10,7 +10,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RewardsComponent } from './rewards/rewards.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, CounterComponent, RewardsComponent],
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    CounterComponent,
+    RewardsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +24,11 @@ import { RewardsComponent } from './rewards/rewards.component';
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent,
+    HomePageComponent,
+    CounterComponent,
+    RewardsComponent,
+  ],
 })
 export class AppModule {}

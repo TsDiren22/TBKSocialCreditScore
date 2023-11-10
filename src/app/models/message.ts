@@ -1,15 +1,14 @@
 import { parse, format } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { enUS, nl } from 'date-fns/locale';
 
 export class Message {
+  userId: number = -1;
   date: Date;
   name: string;
-  text: string;
 
-  constructor(date: string, name: string, text: string) {
+  constructor(date: Date, name: string) {
     // Parse the date using date-fns
-    this.date = parse(date, 'dd/MM/yyyy, HH:mm', new Date(), { locale: enUS });
+    this.date = date;
     this.name = name;
-    this.text = text;
   }
 }

@@ -1,42 +1,59 @@
-<div>
-  <input type="file" (change)="onFileSelected($event)" #fileInput />
-</div>
+<h1>
+  <span class="blue"></span>Last saved message on <span class="blue"></span>
+  <span class="yellow">{{
+    latestMessageDate | date : "dd/MM/yyyy HH:mm"
+  }}</span>
+</h1>
 
-<button *ngIf="userList" mat-raised-button color="primary" (click)="saveData()">
-  Save
-</button>
-<div *ngIf="userList">
-  <h1>Rankings:</h1>
-  <div class="user-list">
-    <div *ngFor="let user of userList" class="user-item">
-      <div>
-        {{ user.name }}<br />
-        Amount of Messages: {{ user.messages.length }}<br />
-        Amount of points: {{ user.points }}
-      </div>
-    </div>
-  </div>
-
-  <h3>Uploaded File Content:</h3>
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let user of userList">
-      <mat-expansion-panel-header>
-        <mat-panel-title (click)="toggleUserMessages(user)">{{
-          user.name
-        }}</mat-panel-title>
-      </mat-expansion-panel-header>
-      <div>
-        <h3>Stats</h3>
-        Amount of Messages: {{ user.messages.length }}
-        <br />
-      </div>
-      <div *ngFor="let message of user.messages">
-        <p>-----------------------------</p>
-        <div>
-          Message: {{ message.text }}<br />
-          Date: {{ message.date | date : "dd/MM/yyyy - HH:mm" }}
-        </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
+<table class="container">
+  <thead>
+    <tr>
+      <th>
+        <label class="custom-file-upload" *ngIf="!fileIsLoaded">
+          <input type="file" (change)="onFileSelected($event)" #fileInput />
+          Upload
+        </label>
+        <button
+          class="custom-file-upload"
+          *ngIf="fileIsLoaded"
+          mat-raised-button
+          color="primary"
+          (click)="saveData()"
+        >
+          Save
+        </button>
+      </th>
+      <th><h1>Name</h1></th>
+      <th><h1>Messages</h1></th>
+      <th><h1>Points</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of savedUserList; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>
+        {{ user.messageAmount }}
+        <span *ngIf="userList.length > 0 && !hideAddedUsers">
+          + {{ userList[i].messageAmount }}</span
+        >
+      </td>
+      <td>
+        {{ user.points }}
+        <span *ngIf="userList.length > 0 && !hideAddedUsers">
+          + {{ userList[i].points }}</span
+        >
+      </td>
+    </tr>
+    <tr *ngFor="let user of userList | slice : savedUserList.length">
+      <td>New</td>
+      <td>{{ user.name }}</td>
+      <td>
+        {{ user.messageAmount }}
+      </td>
+      <td>
+        {{ user.points }}
+      </td>
+    </tr>
+  </tbody>
+</table>
