@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, map } from 'rxjs';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CounterService {
-  private apiBaseUrl = 'http://localhost:3000'; // Replace with your Node.js server URL
+  //baseUrl from .env
+  private apiBaseUrl = environment.key;
 
   constructor(private http: HttpClient) {}
 
@@ -48,6 +50,7 @@ export class CounterService {
   }
 
   getLatestMessageDate() {
+    console.log(this.apiBaseUrl);
     return this.http.get(`${this.apiBaseUrl}/latestMessageDate`);
   }
 }

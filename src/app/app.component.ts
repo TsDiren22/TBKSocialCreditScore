@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
+import { environment } from '../../environment';
 
 @Component({
   selector: 'app-root',
