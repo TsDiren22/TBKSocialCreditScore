@@ -1,5 +1,5 @@
-$color-primary: #fff842;
-$color-secondary: #ffd342;
+$color-primary: #1f2739;
+$color-secondary: #1f2739;
 $color-neutral-lt: #1f2739;
 $color-neutral-med: #1f2739;
 $color-neutral-dk: #444;
@@ -99,14 +99,28 @@ h1.logo #{$a-tags} {
 }
 
 .nav-link {
+  color: white;
   text-transform: uppercase;
   text-align: center;
-  border-top: 0.5px solid $color-neutral-med;
+  border-top: 0.5px solid $color-neutral-lt;
+}
+
+.nav-title {
+  width: auto;
+  position: fixed;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: white;
+  top: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #{$a-tags-no-hov} {
   text-decoration: none;
-  color: $color-primary;
+  color: white;
 }
 
 a:hover {
@@ -115,8 +129,12 @@ a:hover {
 
 .right {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+  width: auto;
 }
 
 .btn-nav {
@@ -139,14 +157,6 @@ a:hover {
     border-top: none;
   }
 
-  .right {
-    overflow: hidden;
-    flex-direction: row;
-    justify-content: flex-end;
-    position: relative;
-    left: 1.5em;
-    height: auto;
-  }
 
   .btn-nav {
     display: none;
@@ -155,14 +165,11 @@ a:hover {
   .nav #{$a-tags-no-hov} {
     &.active {
       @include main-gradient;
-      color: #0e1119;
-  
-      &:hover {
-        color: #0e1119; // Add this to maintain hover effect on the active link
-      }
+      color: $color-neutral-dk;
+      background: $color-neutral-med;
+      background: linear-gradient(45deg, $color-neutral-lt, #ddd);
     }
   }
-  
 
   .nav-link-span {
     @include unskew;

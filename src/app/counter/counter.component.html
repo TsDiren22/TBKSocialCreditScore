@@ -26,6 +26,7 @@
       <th><h1>Name</h1></th>
       <th><h1>Messages</h1></th>
       <th><h1>Points</h1></th>
+      <th *ngIf="!hideAddedUsers"><h1>Add Points</h1></th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,14 @@
         <span *ngIf="userList.length > 0 && !hideAddedUsers">
           + {{ userList[i].points }}</span
         >
+      </td>
+
+      <td
+        *ngIf="!hideAddedUsers"
+        (click)="addPoints(user.name)"
+        style="cursor: pointer"
+      >
+        Click to add
       </td>
     </tr>
     <tr *ngFor="let user of userList | slice : savedUserList.length">

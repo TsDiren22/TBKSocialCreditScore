@@ -25,12 +25,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
-      { path: 'home', component: HomePageComponent },
-      { path: 'counter', component: CounterComponent },
-      { path: 'rewards', component: RewardsComponent },
-    ]),
   ],
   providers: [],
   bootstrap: [

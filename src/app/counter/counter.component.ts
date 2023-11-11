@@ -103,6 +103,42 @@ export class CounterComponent implements OnInit {
     return this.counterService.getUsers();
   }
 
+  async addPoints(name: string) {
+    let user = this.savedUserList.find((user) => user.name === name);
+
+    let points: number | null = null;
+
+    while (points === null) {
+      // Open dialog with input field to add points based on user input
+      const userInput = prompt('How many points do you want to add?');
+
+      if (userInput === null) {
+        // User pressed Cancel
+        return;
+      }
+
+      // Parse the input as a number
+      points = parseInt(userInput);
+
+      // Check if the input is a valid number
+      if (isNaN(points)) {
+        alert('Please enter a valid number for points.');
+        points = null; // Reset points to trigger the next iteration of the loop
+      }
+    }
+
+    try {
+      const response = await this.counterService
+        .addPoints(points, user!.id)
+        .toPromise();
+      // Handle the response if needed
+    } catch (error) {
+      console.error('Error saving points:', error);
+    }
+
+    window.location.reload();
+  }
+
   parseChatText(text: string): User[] {
     const lines: string[] = text.split('\n');
     const userList: User[] = [];
