@@ -10,6 +10,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RewardsComponent } from './rewards/rewards.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     CounterComponent,
     RewardsComponent,
     NavbarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [

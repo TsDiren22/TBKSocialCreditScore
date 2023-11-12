@@ -1,0 +1,52 @@
+<div class="main">
+  <input type="checkbox" id="chk" aria-hidden="true" />
+
+  <div class="signup">
+    <form [formGroup]="register" (submit)="signup()">
+      <label for="chk" aria-hidden="true">Sign up</label>
+      <input
+        formControlName="username"
+        placeholder="Username"
+        required="Username is required"
+      />
+      <input
+        formControlName="phone"
+        placeholder="Phone"
+        required="Phone number is required"
+      />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        required="Password is required"
+      />
+      <select formControlName="name">
+        <option [ngValue]="null" disabled [selected]="true">
+          Select a name
+        </option>
+        <option *ngFor="let user of userList" [value]="user.name">
+          {{ user.name }}
+        </option>
+      </select>
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+
+  <div class="login">
+    <form [formGroup]="login" (submit)="signin()">
+      <label for="chk" aria-hidden="true">Login</label>
+      <input
+        formControlName="username"
+        placeholder="Username"
+        required="Username is required"
+      />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        required="Password is required"
+      />
+      <button>Login</button>
+    </form>
+  </div>
+</div>

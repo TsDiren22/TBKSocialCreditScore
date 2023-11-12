@@ -6,6 +6,9 @@ export class User {
   points: number = 0;
   messageAmount = 0;
   messages: Message[];
+  username: string = '';
+  password: string = '';
+  phone: string = '';
 
   constructor(name: string) {
     this.name = name;
