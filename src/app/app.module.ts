@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientXsrfModule } from '@angular/common/http';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     HttpClientModule,
     ReactiveFormsModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'jwt',
+      headerName: 'jwt',
+    }),
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthService],
   bootstrap: [
     AppComponent,
     HomePageComponent,

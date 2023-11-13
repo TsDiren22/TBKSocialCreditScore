@@ -1,10 +1,8 @@
 .main {
   width: 350px;
   height: 500px;
-  background: red;
   overflow: hidden;
-  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-    no-repeat center/ cover;
+  background-color: #1e2537;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
   position: relative;
@@ -18,6 +16,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  transform: translateY(-20px);
 }
 label {
   color: #fff;
@@ -25,6 +24,7 @@ label {
   justify-content: center;
   display: flex;
   margin: 60px;
+  margin-bottom: 50px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
@@ -83,10 +83,11 @@ button:hover {
 .login label {
   color: #573b8a;
   transform: scale(0.6);
+  transform: translateY(20px);
 }
 
 #chk:checked ~ .login {
-  transform: translateY(-500px);
+  transform: translateY(-550px);
 }
 #chk:checked ~ .login label {
   transform: scale(1);
@@ -94,4 +95,12 @@ button:hover {
 }
 #chk:checked ~ .signup label {
   transform: scale(0.6);
+}
+
+.error-message {
+  color: red;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
 }

@@ -25,6 +25,23 @@
       <a routerLink="/rewards" routerLinkActive="active" class="nav-link"
         >Rewards</a
       >
+
+      <a
+        *ngIf="currentUser == null"
+        routerLink="/login"
+        routerLinkActive="active"
+        class="nav-link"
+        >Sign in</a
+      >
+
+      <a
+        *ngIf="currentUser != null"
+        routerLink="/logout"
+        routerLinkActive="active"
+        class="nav-link"
+        (click)="logout()"
+        >Logout</a
+      >
     </div>
   </nav>
 </header>

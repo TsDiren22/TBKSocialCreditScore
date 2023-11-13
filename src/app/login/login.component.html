@@ -28,6 +28,9 @@
           {{ user.name }}
         </option>
       </select>
+      <div *ngIf="registrationErrors" class="error-message">
+        {{ registrationErrors }}
+      </div>
       <button type="submit">Sign up</button>
     </form>
   </div>
@@ -46,6 +49,7 @@
         placeholder="Password"
         required="Password is required"
       />
+      <div *ngIf="loginErrors" class="error-message">{{ loginErrors }}</div>
       <button>Login</button>
     </form>
   </div>
